@@ -63,11 +63,26 @@ class CustomerDetails {
 
   findCustomer(customer_name) {
     let current = this.head;
+    let counter = 0;
     while (current) {
       if (current.customer_name == customer_name) {
-        return current;
+        counter += 1;
+        console.log(
+          "| " +
+            current.customer_id +
+            "     | " +
+            current.customer_name +
+            "        | " +
+            current.purchase_date +
+            "                | " +
+            current.amount +
+            "        |"
+        );
       }
       current = current.next;
+    }
+    if (counter === 0) {
+      console.log(`Customer ${customer_name} not found`);
     }
     return null;
   }
@@ -80,7 +95,7 @@ customerList.addCustomerDetails("C325435", "Travis", "20/02/23", "2400");
 customerList.addCustomerDetails("C436879", "Archie", "10/12/22", "2700");
 customerList.addCustomerDetails("C246639", "Fabien", "15/01/23", "3500");
 customerList.addCustomerDetails("C325525", "Walter", "20/02/23", "2100");
-customerList.addCustomerDetails("C436630", "Archie", "10/12/22", "4500");
+customerList.addCustomerDetails("C436630", "Archie", "10/01/23", "4500");
 
 customerList.sortAmount();
 let current = customerList.head;
@@ -147,20 +162,7 @@ console.log(
   "-----------------------------------------------------------------------"
 );
 let customer_name = "Archie";
-let customer = customerList.findCustomer(customer_name);
-customer
-  ? console.log(
-      "| " +
-        customer.customer_id +
-        "     | " +
-        customer.customer_name +
-        "        | " +
-        customer.purchase_date +
-        "                | " +
-        customer.amount +
-        "        |"
-    )
-  : console.log(`Customer ${customer_name} not found`);
+customerList.findCustomer(customer_name);
 console.log(
   "-----------------------------------------------------------------------"
 );
