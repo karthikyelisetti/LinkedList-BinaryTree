@@ -69,7 +69,7 @@ class BinarySearchTree {
     let total = 0;
     if (studentMarks) {
       studentMarks.forEach(student => {
-        if (counter == 0) { console.log(`Student Name: ${studentName}`); }
+        // if (counter == 0) { console.log(`Student Name: ${studentName}`); }
         counter += 1;
         total += student.marks;
         console.log(`${student.subject}: ${student.marks}`);
@@ -89,11 +89,12 @@ bst.addStudent(855, "James", [{subject: "Maths", marks: 75}, {subject: "Physics"
 bst.addStudent(856, "Hari", [{subject: "Maths", marks: 90}, {subject: "Physics", marks: 70}, {subject: "Chemistry", marks: 75}, {subject: "Social", marks: 65}, {subject: "Computer Science", marks: 80}]);
 bst.addStudent(854, "Ravi", [{subject: "Maths", marks: 85}, {subject: "Physics", marks: 90}, {subject: "Chemistry", marks: 85}, {subject: "Social", marks: 60}, {subject: "Computer Science", marks: 75}]);
 
-console.log("==========================");
+console.log("--------------------------");
 console.log("Searching Student Details");
-console.log("==========================");
+console.log("--------------------------");
 
 let studentName = "Ravi"
 const studentMarks = bst.search(studentName);
+console.log(`Student Name: ${studentName}`);
 
 bst.printDetails(studentName, studentMarks);
